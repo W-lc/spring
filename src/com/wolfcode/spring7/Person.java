@@ -1,8 +1,11 @@
 package com.wolfcode.spring7;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
 
 //@Repository
 //@Service
@@ -13,8 +16,10 @@ public class Person {
     private String name;
     @Value("1")
     private Integer id;
-    @Autowired
-    private Hobby hobby;
+//    @Autowired
+//    @Qualifier("h1")
+    @Resource
+    private Hobby h;
 
     public String getName() {
         return name;
@@ -36,7 +41,7 @@ public class Person {
         return "Person{" +
                 "name='" + name + '\'' +
                 ", id=" + id +
-                ", hobby=" + hobby +
+                ", hobby=" + h +
                 '}';
     }
 }

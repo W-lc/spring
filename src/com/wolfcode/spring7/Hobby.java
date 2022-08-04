@@ -3,7 +3,7 @@ package com.wolfcode.spring7;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("h")
 public class Hobby {
     @Value("1")
     private Integer hid;
