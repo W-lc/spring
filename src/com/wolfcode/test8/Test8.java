@@ -11,6 +11,18 @@ public class Test8 {
     public void test2_userService(){
         ClassPathXmlApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
         UserService userService = ac.getBean("userService", UserService.class);
+        User user = new User();
+        user.setDepart_id(1);
+        user.setSex(1);
+        user.setCreate_time("2022-09-13");
+        user.setAccount(800.0);
+        user.setId(2);
+        user.setPassword("123456");
+        user.setAge(20);
+        user.setName("汪秋旭");
+        userService.addUser(user);
+
+
         
     }
     @Test
