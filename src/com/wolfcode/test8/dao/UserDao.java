@@ -1,5 +1,6 @@
 package com.wolfcode.test8.dao;
 
+import com.wolfcode.test8.entity.Opration;
 import com.wolfcode.test8.entity.User;
 
 import java.sql.SQLException;
@@ -13,4 +14,10 @@ public interface UserDao {
      * @param user
      */
     void insert(User user);
+
+    /**
+     * 插入日志信息
+     * @param opration
+     */
+    void insertLog(Opration opration);
 }

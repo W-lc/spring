@@ -1,13 +1,14 @@
 package com.wolfcode.spring7;
 
 import com.alibaba.druid.pool.DruidDataSource;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import java.sql.Connection;
 import java.sql.SQLException;
-
+@Scope("prototype")
 @Component
 public class MyDruid {
     private DruidDataSource druidDataSource;

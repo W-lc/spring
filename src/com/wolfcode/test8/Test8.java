@@ -20,7 +20,7 @@ public class Test8 {
         user.setPassword("123456");
         user.setAge(20);
         user.setName("汪秋旭");
-        userService.addUser(user);
+//        userService.addUser(user);
 
 
         
