@@ -15,21 +15,21 @@
 <!--    <bean id="p1" class="com.wolfcode.spring2.Person"></bean>-->
 <!--    <bean id="jdbc" class="com.wolfcode.spring3.MyJDBC" init-method="init" destroy-method="close"></bean>-->
 <!--    <bean id="p2" class="com.wolfcode.spring4.Person2"></bean>-->
-    <bean id="h1" class="com.wolfcode.spring5.Hobby">
-        <property name="hid" value="2"></property>
-        <property name="hname" value="唱跳rap"></property>
-        <property name="hdesc" value="蔡徐坤"></property>
-    </bean>
-    <bean id="p3" class="com.wolfcode.spring5.Person3">
+<!--    <bean id="h1" class="com.wolfcode.spring5.Hobby">-->
+<!--        <property name="hid" value="2"></property>-->
+<!--        <property name="hname" value="唱跳rap"></property>-->
+<!--        <property name="hdesc" value="蔡徐坤"></property>-->
+<!--    </bean>-->
+<!--    <bean id="p3" class="com.wolfcode.spring5.Person3">-->
 <!--        构造器注入-->
-        <constructor-arg name="id" value="100"></constructor-arg>
-        <constructor-arg name="name" value="zhangyaoyao"></constructor-arg>
-        <constructor-arg name="hobby" ref="h1"></constructor-arg>
+<!--        <constructor-arg name="id" value="100"></constructor-arg>-->
+<!--        <constructor-arg name="name" value="zhangyaoyao"></constructor-arg>-->
+<!--        <constructor-arg name="hobby" ref="h1"></constructor-arg>-->
 <!--        setter注入-->
 <!--        <property name="id" value="123"></property>-->
 <!--        <property name="name" value="lisi"></property>-->
 <!--        <property name="hobby" ref="h1"></property>-->
-    </bean>
+<!--    </bean>-->
     <bean id="a" class="com.wolfcode.spring6.A">
         <property name="aname" value="a类型"></property>
         <property name="b" ref="b"></property>
@@ -73,6 +73,8 @@
     <bean id="userService" class="com.wolfcode.test8.service.impl.UserServiceImpl">
         <property name="userDao" ref="userDao"></property>
     </bean>
+    <context:component-scan base-package="com.wolfcode.spring7"></context:component-scan>
+
 
 
 </beans>
