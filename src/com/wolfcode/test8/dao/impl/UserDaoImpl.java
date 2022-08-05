@@ -15,8 +15,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 @Repository
 public class UserDaoImpl implements UserDao {
-//    @Autowired
-//    private DruidDataSource druidDataSource;
+    @Autowired
+    private DruidDataSource druidDataSource;
 
 //    public DruidDataSource getDruidDataSource() {
 //        return druidDataSource;
@@ -31,6 +31,8 @@ public class UserDaoImpl implements UserDao {
     public void insert(User user) {
         try {
             Connection connection = myTransManager.getConn();
+//            Connection connection = druidDataSource.getConnection();
+
             PreparedStatement pst = connection.prepareStatement("insert into app01_userinfo values(?,?,?,?,?,?,?,?)");
             pst.setInt(1,user.getId());
             pst.setString(2,user.getName());

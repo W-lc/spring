@@ -73,7 +73,7 @@
 <!--    <bean id="userService" class="com.wolfcode.test8.service.impl.UserServiceImpl">-->
 <!--        <property name="userDao" ref="userDao"></property>-->
 <!--    </bean>-->
-    <context:component-scan base-package="com.wolfcode.*"></context:component-scan>
+    <context:component-scan base-package="com.wolfcode.test8"></context:component-scan>
 
 
 
