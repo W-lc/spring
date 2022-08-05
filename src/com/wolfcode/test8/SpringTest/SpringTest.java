@@ -26,6 +26,7 @@ public class SpringTest {
         opration.setUid(1);
         userDao.insertLog(opration);
     }
+
     @Test
     public void test3() {
         System.out.println(userService);
