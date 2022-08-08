@@ -30,18 +30,18 @@
 <!--        <property name="name" value="lisi"></property>-->
 <!--        <property name="hobby" ref="h1"></property>-->
 <!--    </bean>-->
-    <bean id="a" class="com.wolfcode.spring6.A">
-        <property name="aname" value="a类型"></property>
-        <property name="b" ref="b"></property>
-    </bean>
-    <bean id="b" class="com.wolfcode.spring6.B">
-        <property name="bname" value="b类型"></property>
-        <property name="c" ref="c"></property>
-    </bean>
-    <bean id="c" class="com.wolfcode.spring6.C">
-        <property name="cname" value="c类型"></property>
-        <property name="a" ref="a"></property>
-    </bean>
+<!--    <bean id="a" class="com.wolfcode.spring6.A">-->
+<!--        <property name="aname" value="a类型"></property>-->
+<!--        <property name="b" ref="b"></property>-->
+<!--    </bean>-->
+<!--    <bean id="b" class="com.wolfcode.spring6.B">-->
+<!--        <property name="bname" value="b类型"></property>-->
+<!--        <property name="c" ref="c"></property>-->
+<!--    </bean>-->
+<!--    <bean id="c" class="com.wolfcode.spring6.C">-->
+<!--        <property name="cname" value="c类型"></property>-->
+<!--        <property name="a" ref="a"></property>-->
+<!--    </bean>-->
 <!--    <bean id="driverManager" class="java.sql.DriverManager"></bean>-->
     <context:property-placeholder location="jdbc.properties"></context:property-placeholder>
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">

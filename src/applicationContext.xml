@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!--    加载到jdbc.properties-->
+    <context:property-placeholder location="jdbc.properties"></context:property-placeholder>
+    <!--    配置druid连接池-->
+    <bean id="druidDataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="url" value="${jdbc.url}"></property>
+        <property name="driverClassName" value="${jdbc.driverClassName}"></property>
+        <property name="username" value="${jdbc.username}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+        <property name="maxActive" value="20"></property>
+    </bean>
+    <!--添加扫描器-->
+    <context:component-scan base-package="com.wolfcode.spring8"></context:component-scan>
+    <!--    aop配置-->
+<!--    <aop:config>-->
+<!--        定义切面 -表示增强的功能-->
+<!--        <aop:aspect ref="myTransManager" order="2">-->
+<!--            &lt;!&ndash;定义切点 表示该切面在哪些地方执行功能增强&ndash;&gt;-->
+<!--            <aop:pointcut id="p1" expression="execution(* com.wolfcode.spring8.service.impl.UserServiceImpl.addUser(..))"/>-->
+<!--&lt;!&ndash;            在执行切点方法之前&ndash;&gt;-->
+<!--            <aop:before method="startTrans" pointcut-ref="p1"></aop:before>-->
+<!--&lt;!&ndash;            在方法成功执行时&ndash;&gt;-->
+<!--            <aop:after-returning method="commit" pointcut-ref="p1"></aop:after-returning>-->
+<!--&lt;!&ndash;            在方法执行失败时&ndash;&gt;-->
+<!--            <aop:after-throwing method="rollback" pointcut-ref="p1"></aop:after-throwing>-->
+<!--        </aop:aspect>-->
+<!--    </aop:config>-->
+<!--    <aop:config>-->
+<!--        <aop:aspect ref="computeTime" order="0">-->
+<!--            <aop:pointcut id="c1" expression="execution(* com.wolfcode.spring8.service.impl.UserServiceImpl.addUser(..))"/>-->
+<!--            <aop:before method="getStartTime" pointcut-ref="c1"></aop:before>-->
+<!--            <aop:after-returning method="getEndTime" pointcut-ref="c1"></aop:after-returning>-->
+<!--            <aop:after-throwing method="getEndTime" pointcut-ref="c1"></aop:after-throwing>-->
+<!--        </aop:aspect>-->
+<!--    </aop:config>-->
+    <!--需要配置一个让aop注解生效的配置-->
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+</beans>

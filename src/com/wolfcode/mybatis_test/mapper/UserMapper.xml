@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wolfcode.mybatis_test.dao.UserDao">
+    <insert id="insert" parameterType="com.wolfcode.mybatis_test.entity.T_user">
+        insert into app01_userinfo(name, password, age, account, create_time, sex, depart_id)
+        values (#{name}, #{password}, #{age}, #{account}, #{create_time}, #{sex}, #{depart_id})
+    </insert>
+    <update id="update" parameterType="com.wolfcode.mybatis_test.entity.T_user">
+        update app01_userinfo<trim prefix="set" suffixOverrides=",">
+            <if test="name!=null and name!=''">
+                name=#{name},
+            </if>
+            <if test="password!=null and password!=''">
+                password=#{password},
+            </if>
+            <if test="account!=null">
+            account=#{account},
+            </if>
+            <if test="age!=null">
+            age=#{age},
+            </if>
+            <if test="sex!=null">
+            sex=#{sex},
+            </if>
+            <if test="depart_id!=null">
+            depart_id=#{depart_id},
+            </if>
+            <if test="create_time!=null and create_time!=''">
+            create_time=#{create_time},
+            </if>
+        </trim>
+        <if test="id!=null">
+            where id=#{id}
+        </if>
+    </update>
+    <delete id="delete" parameterType="java.lang.Integer">
+        delete from app01_userinfo where id=#{id}
+    </delete>
+    <select id="selectSingle" parameterType="java.lang.Integer" resultType="com.wolfcode.mybatis_test.entity.T_user">
+        select * from app01_userinfo where id=#{id}
+    </select>
+    <select id="selectUserList" parameterType="java.util.Map" resultType="com.wolfcode.mybatis_test.entity.T_user">
+        select * from app01_userinfo
+        <where>
+            <if test="name!=null">
+                name=#{name}
+            </if>
+            <if test="password!=null and password!=''">
+               or password=#{password}
+            </if>
+            <if test="account!=null">
+               or account=#{account}
+            </if>
+            <if test="age!=null">
+               or age=#{age}
+            </if>
+            <if test="sex!=null">
+               or sex=#{sex}
+            </if>
+            <if test="depart_id!=null">
+               or depart_id=#{depart_id}
+            </if>
+            <if test="create_time!=null and create_time!=''">
+               or create_time=#{create_time},
+            </if>
+        </where>
+    </select>
+</mapper>

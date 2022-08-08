@@ -1,6 +1,6 @@
-package com.wolfcode.test8.entity;
+package com.wolfcode.spring8.entity;
 
-public class Opration extends com.wolfcode.spring8.entity.Opration {
+public class Opration {
     private Integer id;
     private String opration;
     private Integer uid;
